@@ -1,4 +1,7 @@
 # Changelog
+## [1.0.3] - 2018-07-25
+-  Update asmdef file to avoid building bug.
+
 ## [1.0.2] - 2018-03-23
 - Add Unity version to package.json.
 
