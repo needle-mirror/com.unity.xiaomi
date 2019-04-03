@@ -1,4 +1,8 @@
 # Changelog
+## [1.0.4] - 2019-03-04
+- Update structure
+- Add license files
+
 ## [1.0.3] - 2018-07-25
 -  Update asmdef file to avoid building bug.
 

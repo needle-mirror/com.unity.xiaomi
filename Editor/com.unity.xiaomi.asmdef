@@ -1,7 +1,7 @@
 {
-    "name": "Editor",
+    "name": "com.unity.xiaomi.Editor",
     "references": [
-        "XiaomiSupport"
+        "com.unity.xiaomi"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [
