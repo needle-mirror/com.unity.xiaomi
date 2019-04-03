@@ -1,8 +1,15 @@
-﻿using UnityEditor;
+﻿// #define ENABLE_XIAOMIPACKAGENAMEEXTENSION
+#if ENABLE_XIAOMIPACKAGENAMEEXTENSION
+#if UNITY_5_6_OR_NEWER && !UNITY_5_6_0
+using UnityEditor;
+using UnityEngine;
 using UnityEditor.Build;
 
-namespace XiaomiSupport
+namespace AppStoresSupport
 {
+    /// <summary>
+    /// Automatic generation of Xiaomi-compatible package identifier during Android build.
+    /// </summary>
     public class XiaomiPackageNameExtension : IPreprocessBuild, IPostprocessBuild
     {
         public int callbackOrder
@@ -19,6 +26,7 @@ namespace XiaomiSupport
             var originalPackageName = PlayerSettings.applicationIdentifier;
             if (EditorUserBuildSettings.selectedBuildTargetGroup == BuildTargetGroup.Android && !originalPackageName.EndsWith(XiaomiPostfix))
             {
+                Debug.Log(originalPackageName);
                 PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, originalPackageName + XiaomiPostfix);
                 IsXiaomiPostfixAdded = true;
             }
@@ -29,9 +37,12 @@ namespace XiaomiSupport
             if (IsXiaomiPostfixAdded)
             {
                 var packageName = PlayerSettings.applicationIdentifier;
+                Debug.Log(packageName);
                 PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, packageName.Remove(packageName.Length - XiaomiPostfix.Length));
                 IsXiaomiPostfixAdded = false;
             }
         }
     }
 }
+#endif
+#endif // ENABLE_XIAOMIPACKAGENAMEEXTENSION

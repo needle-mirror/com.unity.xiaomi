@@ -1,5 +1,4 @@
 {
-  "name" : "com.unity.xiaomi",
-  "version" : "0.0.4",
-  "description" : "Xiaomi's Unity integration"
+    "name": "com.unity.xiaomi",
+    "version": "1.0.0"
 }
